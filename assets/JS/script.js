@@ -16,7 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 runGame(gameType);                                           // Notice that we're using a template literal here: back quotes in the alert rather than apostrophes or double quotes. And then we're using the dollar sign and curly braces to refer to the game type. So what this will just do is tell the  user what button has been clicked.)
             }
         })
-    }                              
+    }                        
+    
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
 
     runGame("addition"); 
 
@@ -26,7 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
  * The main game "loop", called when the script is first loaded
  * and after the user's answer has been processed
  */
-function runGame(gameType) {  
+function runGame(gameType) {
+
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
     
     // Creates 2 random numbers between 1 and 25
     let num1 = Math.floor (Math.random() * 25) +1;
