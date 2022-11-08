@@ -7,7 +7,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button"); //button aqui é a tag q estamos procurando nessa execucao
 
-
     for (let button of buttons){
         button.addEventListener("click", function() {
             if(this.getAttribute("data-type") === "submit") {  //Inside of the code block 'this' refers to the button that was just clicked. 
@@ -20,8 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 })
 
-function runGame() {
-
+/** 
+ * The main game "loop", called when the script is first loaded
+ * and after the user's answer has been processed
+ */
+function runGame() {  
+    let num1 = Math.floor (Math.random() * 25) +1;
+    let num2 = Math.floor (Math.random() * 25) +1;
 }
 
 function checkAnswer() {
